@@ -10,7 +10,7 @@ export class AppComponent {
   courses: any[];
 
   constructor(db: AngularFireDatabase) {
-    db.list('/course').valueChanges()
+    db.list('/courses').valueChanges()
       .subscribe(courses =>{
         this.courses= courses;
         console.log(this.courses);
