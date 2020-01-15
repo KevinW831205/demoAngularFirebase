@@ -7,13 +7,17 @@ import { Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent {
   courses$;
   // courses: any[];
   // subscription: Subscription;
+  course$;
+  author$;
 
   constructor(db: AngularFireDatabase) {
     this.courses$ = db.list('/courses').valueChanges();
+    this.course$ = db.object('/courses/1').valueChanges();
+    this.author$ = db.object('/authors/1').valueChanges();
 
     // this.subscription = db.list('/courses').valueChanges()
     //   .subscribe(courses => {
