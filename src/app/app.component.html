@@ -1,9 +1,9 @@
 <h1>Firebase-demo</h1>
 
 <ul>
-  <li *ngFor = "let course of courses">
+  <li *ngFor = "let course of courses$ | asyncs">
     {{course}}
   </li>
 </ul>
 
-<button (click)="ngOnDestroy()"> Go offline</button>
+<button > Go offline</button>
