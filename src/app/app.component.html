@@ -1,6 +1,13 @@
 <h1>Firebase-demo</h1>
 
-<ul>
+
+<ul *ngIf="author$ | async as author">
+  <li>{{author.name}}</li>
+  <li>{{author.students}}</li>
+  <li>{{author.isPremium}}</li>
+</ul>
+
+<!-- <ul>
   <li *ngFor = "let course of courses$ | async">
     {{course}}
   </li>
@@ -11,4 +18,4 @@
 <p>
   {{author$ | async | json}}
 </p>
-<button > Go offline</button>
+<button > Go offline</button> -->
