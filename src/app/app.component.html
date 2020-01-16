@@ -1,14 +1,15 @@
 <h1>Firebase-demo</h1>
 
-
-<ul *ngIf="author$ | async as author">
+<input type="text" (keyup.enter)="add(course)" #course>
+ 
+<ul *ngIf="authorValue$ | async as author">
   <li>{{author.name}}</li>
   <li>{{author.students}}</li>
   <li>{{author.isPremium}}</li>
 </ul>
 
 <!-- <ul>
-  <li *ngFor = "let course of courses$ | async">
+  <li *ngFor = "let course of coursesValue$ | async">
     {{course}}
   </li>
 </ul>
