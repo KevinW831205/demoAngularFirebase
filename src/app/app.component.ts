@@ -15,7 +15,7 @@ export class AppComponent {
   authorValue$;
   coursesValue$;
 
-  constructor(db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase) {
     this.courses$ = db.list('/courses');
     this.coursesValue$ = db.list('/courses').valueChanges();
     this.courseValue$ = db.object('/courses/1').valueChanges();
@@ -44,6 +44,13 @@ export class AppComponent {
     course.value = "";
   }
 
+  updateCourse(course){
+    console.log(this.courseValue$);
+    console.log(course);
+    console.log(course.key)
+    // this.db.object('/courses/'+course.$key).set(course.$value+' updated')
+
+  }
   // ngOnDestroy(){
   //   this.subscription.unsubscribe();
   // }
