@@ -10,7 +10,7 @@
 
 <ul>
   <li *ngFor="let course of coursesValue$ | async">
-    {{course}}
+    {{course.name || course}}
   </li>
 </ul>
 <!-- <p>
