@@ -13,10 +13,11 @@ export class AppComponent {
   // subscription: Subscription;
   courseValue$;
   authorValue$;
-
+  coursesValue$;
 
   constructor(db: AngularFireDatabase) {
     this.courses$ = db.list('/courses');
+    this.coursesValue$ = db.list('/courses').valueChanges();
     this.courseValue$ = db.object('/courses/1').valueChanges();
     this.authorValue$ = db.object('/authors/1').valueChanges();
 
