@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { AngularFireDatabase , AngularFireList} from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  courses$: AngularFireList<any[]>;
+  courses$: AngularFireList<any>;
   // courses: any[];
   // subscription: Subscription;
   courseValue$;
@@ -28,8 +28,17 @@ export class AppComponent {
 
   }
 
-  add(course:HTMLInputElement){
-    this.courses$.push([course.value])
+  add(course: HTMLInputElement) {
+    this.courses$.push({
+      name: course.value,
+      price: 1,
+      isLive: false,
+      section: [
+        { id: 1, name:"section1"},
+        { id: 2, name:"section2"},
+        { id: 3, name:"section3"},
+      ]
+    })
 
     course.value = "";
   }
