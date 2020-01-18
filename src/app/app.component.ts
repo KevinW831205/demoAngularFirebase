@@ -45,9 +45,7 @@ export class AppComponent {
   }
 
   updateCourse(course){
-    console.log(course);
-    console.log(course.key)
-    // this.db.object('/courses/'+course.$key).set(course.$value+' updated')
+    this.db.object('/courses/'+course.payload.key).set(course.payload.val()+' updated')
 
   }
   // ngOnDestroy(){
