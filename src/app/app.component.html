@@ -11,7 +11,8 @@
 <ul>
   <li *ngFor="let course of (coursesValue$ | async)">
     {{course.payload.key  +" " +course.payload.val()}}
-    <button (click)="updateCourse(course)" > Update </button>
+    <button (click)="updateCourse(course)"> Update </button>
+    <button (click)="delete(course)">delete</button>
   </li>
 </ul>
 <!-- <p>

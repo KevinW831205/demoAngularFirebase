@@ -35,18 +35,23 @@ export class AppComponent {
       price: 1,
       isLive: false,
       section: [
-        { id: 1, name:"section1"},
-        { id: 2, name:"section2"},
-        { id: 3, name:"section3"},
+        { id: 1, name: "section1" },
+        { id: 2, name: "section2" },
+        { id: 3, name: "section3" },
       ]
     })
 
     course.value = "";
   }
 
-  updateCourse(course){
-    this.db.object('/courses/'+course.payload.key).set(course.payload.val()+' updated')
+  updateCourse(course) {
+    this.db.object('/courses/' + course.payload.key).set(course.payload.val() + ' updated')
+  }
 
+  delete(course) {
+    this.db.object('courses/' + course.payload.key).remove()
+      .then(x=>console.log("deleted"))
+      .catch(e=>console.log(e));
   }
   // ngOnDestroy(){
   //   this.subscription.unsubscribe();
